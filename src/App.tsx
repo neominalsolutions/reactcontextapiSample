@@ -1,26 +1,37 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Outlet, useRoutes } from 'react-router-dom';
+import path from 'path';
+import DebouncingSample from './debouncing/DebouncingSample';
+import Layout from './layout/Layout';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return useRoutes([
+		{
+			// element: (
+			// 	<>
+			// 		<p>Layout</p>
+			// 		<Outlet />
+			// 	</>
+			// ),
+			// element: (
+			// 	<Layout>
+			// 		{/* aşağıdaki kısım children görevi görür. */}
+			// 		<h1>Başlık</h1>
+			// 		<p>Slider</p>
+			// 	</Layout>
+			// ),
+			path: '/',
+			Component: Layout,
+			children: [
+				{
+					path: 'debouncing',
+					Component: DebouncingSample,
+				},
+			],
+		},
+	]);
 }
 
 export default App;
