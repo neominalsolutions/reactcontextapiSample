@@ -20,6 +20,7 @@ function Layout({ children }: LayoutProps) {
 		<div style={{ padding: '10px' }}>
 			<nav>
 				<Link to="/debouncing">Debouncing</Link> <Link to="/">Home</Link>{' '}
+				<Link to="/customHook">Custom Hook</Link>{' '}
 				{/* uygulama dışı linkler için tercih edilebilir. */}
 				<a href="https://www.google.com">Google</a>
 			</nav>
@@ -28,7 +29,7 @@ function Layout({ children }: LayoutProps) {
 			{/* buraya ekstradan bir jsx content props olarak gönderilebilir */}
 			<main style={{ padding: '10px' }}>
 				<Outlet />
-                {/* seçilen sayfanın doma girmesini saylayan bir react router dom işaretleyicisi */}
+				{/* seçilen sayfanın doma girmesini saylayan bir react router dom işaretleyicisi */}
 			</main>
 
 			<footer>Alt Bilgi</footer>

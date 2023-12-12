@@ -5,6 +5,7 @@ import { Outlet, useRoutes } from 'react-router-dom';
 import path from 'path';
 import DebouncingSample from './debouncing/DebouncingSample';
 import Layout from './layout/Layout';
+import CustomHookSample from './customHook/CustomHookSample';
 
 function App() {
 	return useRoutes([
@@ -28,6 +29,10 @@ function App() {
 				{
 					path: 'debouncing',
 					Component: DebouncingSample,
+				},
+				{
+					path: 'customHook',
+					Component: CustomHookSample,
 				},
 			],
 		},
