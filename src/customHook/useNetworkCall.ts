@@ -14,6 +14,7 @@ const useNetwork = (
 	const [error, setError] = useState<any>(); // error state
 	const [loading, setLoading] = useState<boolean>(false);
 	const [isFetching, setIsFetcing] = useState<boolean>(false); // istek devam ediyor mu state buradan alabiliriz.
+	const [fetched, setFetched] = useState<boolean>(false);
 
 	const axiosInstance = axios.create({
 		baseURL: baseUrl,
@@ -48,6 +49,7 @@ const useNetwork = (
 			// request bittiği için isFetching False yaptık.
 			// window.alert('İşlem tamamlandı');
 			// return config;
+
 			return config.data;
 		},
 		function (error) {
@@ -87,7 +89,15 @@ const useNetwork = (
 		// doma ilk basıldığı anda async veri çekme işlemini başlattığımız hook
 		fetchDebounceHandler(); // doma girerken network call başlatık ama  debouncingTime göre bekleyip çalışacaktır. böyle sayfaya her giriş çıkışta berlirli bir saniye sonra tetiklenecek.
 		setLoading(true);
+		// setFetched(false);
 	}, []); // url değişiminde farklı bir network call işlemi yap.
-	return [data, error, loading, isFetching]; // data çekildikten sonra dönen response
+
+	// datanın değişimini state bastığımız an state asenkron olduğundan datanı state basıldığındna emin olduğumuz anda fetched değerini set ettik.
+	useEffect(() => {
+		// datanın state basıldığı an doğru bir fetch anı oluyor
+		setFetched(true);
+	}, [data]);
+
+	return [data, error, loading, isFetching, fetched]; // data çekildikten sonra dönen response
 };
 export default useNetwork;

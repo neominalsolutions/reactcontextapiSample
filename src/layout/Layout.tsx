@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
-import App from '../App';
 
 // parent component içerisinde child component geçişi yapmak istersek,  children?: React.ReactNode; şeklinde bir props tanımlıyoruz.
 /*
@@ -21,6 +20,8 @@ function Layout({ children }: LayoutProps) {
 			<nav>
 				<Link to="/debouncing">Debouncing</Link> <Link to="/">Home</Link>{' '}
 				<Link to="/customHook">Custom Hook</Link>{' '}
+				<Link to="/contextapi">Context API</Link>{' '}
+				<Link to="/cartSummary">Cart Summary</Link>{' '}
 				{/* uygulama dışı linkler için tercih edilebilir. */}
 				<a href="https://www.google.com">Google</a>
 			</nav>
