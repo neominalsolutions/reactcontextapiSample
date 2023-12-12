@@ -85,6 +85,25 @@ function App() {
 				},
 			],
 		},
+		{
+			path: '/login',
+			element: <>Login Page</>,
+		},
+		{
+			path: '/admin',
+			element: (
+				<>
+					<h1>Admin Page</h1>
+					<Outlet />
+				</>
+			),
+			children: [
+				{
+					path: 'users',
+					element: <>Users Page</>,
+				},
+			],
+		},
 	]);
 }
 

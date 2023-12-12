@@ -13,6 +13,9 @@ root.render(
 	<>
 		<BrowserRouter>
 			<CartProvider>
+				{/* <Routes>
+					<Route></Route>
+				</Routes> */}
 				{/* children */}
 				{/* app altındaki tüm componentlerin bu global state değerlerine erişmesi için yaptık. */}
 				<App />
